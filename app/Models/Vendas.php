@@ -29,7 +29,8 @@ class Vendas extends Model
         'last_auth_mt5',
         'descricao_licenca',
         'update_account',
-        'saldo'
+        'saldo',
+        'moeda',
 
     ];
 }

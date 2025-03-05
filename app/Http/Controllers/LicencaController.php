@@ -11,7 +11,7 @@ class LicencaController extends Controller
 {
     public function show()
     {
-        return view('index', ['user_ativos' => $this->getUserAtivos(), 'user_inativos' => $this->getUserInativos(), 'users' => $this->getAllUsers(), 'new_clientes'=>$this->getNewClientes()]);
+        return view('index', ['user_ativos' => $this->getUserAtivos(), 'user_inativos' => $this->getUserInativos(), 'users' => $this->getAllUsers(), 'new_clientes'=>$this->getNewClientes(), 'saldo' => $this->getSaldoClienteAtivos()]);
     }
 
     public function getNewClientes()
@@ -28,6 +28,12 @@ class LicencaController extends Controller
     public function getUserAtivos()
     {
         $qtd = Vendas::all()->where('end', '>', date('Y-m-d'))->count();
+        return $qtd;
+    }
+
+    public function getSaldoClienteAtivos()
+    {
+        $qtd = Vendas::all()->where('end', '>', date('Y-m-d'))->sum("saldo");
         return $qtd;
     }
 

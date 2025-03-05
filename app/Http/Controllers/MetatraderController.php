@@ -27,8 +27,9 @@ class MetatraderController extends Controller
             {
                 $registro->last_auth_mt5 = now();
                 $registro->saldo = $request->saldo;
+                $registro->moeda = $request->moeda;
                 $registro->save();
-                return array('licenca_ativa' => true, 'expiracao' => $registro->end, "saldo" => $request->saldo);
+                return array('licenca_ativa' => true, 'expiracao' => $registro->end, "saldo" => $request->saldo, "moeda: " => $request->moeda);
             }
             else
                 return array('licenca_ativa' => false, 'expiracao' => $registro->end);

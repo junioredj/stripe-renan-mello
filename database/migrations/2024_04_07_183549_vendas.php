@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('account_mt5')->nullable();
             $table->string('status')->nullable();
             $table->double('saldo')->nullable();
+            $table->string('moeda')->nullable();
             $table->timestamp('update_account')->nullable();
             $table->timestamps();
         });

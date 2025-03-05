@@ -102,6 +102,13 @@
                 <p class="display-6">{{ $new_clientes ?? 0 }}</p>
                 <!-- Exemplo de quantidade, substitua dinamicamente -->
             </div>
+
+            <div class="card-box">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h3 class="my-3">Valor Gerenciado(Cliente ativos)</h3>
+                <p class="display-6">${{ number_format($saldo, 2, ",", ".") ?? 0 }}</p>
+                <!-- Exemplo de quantidade, substitua dinamicamente -->
+            </div>
         </div>
 
 
@@ -123,6 +130,7 @@
                         <th>Situação</th>
                         <th>Expiração</th>
                         <th>Ult. Autenticação</th>
+                        <th>Saldo</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -146,6 +154,8 @@
                         @else
                             <td>N/A</td>
                         @endif
+
+                        <td>{{ number_format($user->saldo, 2, ",", ".") ?? 0 }} {{ $user->moeda??"" }}</td>
 
                         <td>
                             <div class="d-flex justify-content-around ">
